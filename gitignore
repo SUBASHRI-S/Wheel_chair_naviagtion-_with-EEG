@@ -1,0 +1,44 @@
+# MATLAB autosave and temporary files
+*.asv
+*.m~
+*.autosave
+
+# MATLAB editor and workspace files
+*.mlx~
+*.mat~
+*.slxc
+
+# MATLAB generated cache and build folders
+slprj/
+codegen/
+*.mex*
+*.pdb
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor and IDE settings
+.vscode/
+.idea/
+
+# Temporary and log files
+*.tmp
+*.temp
+*.log
+
+# Backup files
+*.bak
+*.old
+
+# Python cache (if used for supporting scripts)
+__pycache__/
+*.py[cod]
+
+# Environment files and secrets
+.env
+.env.*
+
+# Keep important project files and datasets tracked.
+# Do not ignore .mat model files or dataset CSV files by default.
