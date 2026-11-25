@@ -49,28 +49,22 @@ Develop a pipeline that can:
 
 ---
 
-## 3. System Architecture
+## System Architecture
+![System architecture diagram](./image.png)
 
-```mermaid
-flowchart TD
-    A["EEG Sensor<br/>FP1 / FP2"] --> B["Signal Acquisition"]
-    B --> C["Dataset Preparation"]
-    C --> D["Signal Preprocessing"]
-    D --> E["FFT Feature Extraction"]
-    E --> F["Feature Vectorization"]
-    F --> G["ML Model Benchmarking"]
-    G --> H["Model Selection"]
-    H --> I["Mental-State Prediction"]
-    I --> J["Command Mapping"]
-    J --> K["Serial Communication"]
-    K --> L["Arduino UNO"]
-    L --> M["L298N Motor Driver"]
-    M --> N["DC Gear Motors"]
-```
+**Architecture overview:** The system separates neural-signal acquisition, feature engineering, machine-learning classification, command communication, and motor actuation into five functional layers. EEG-derived features are classified into movement intentions, translated into serial commands, and passed to the Arduino-based motor-control system.
 
-The architecture separates signal interpretation from physical actuation. This separation provides a foundation for independently testing the classification pipeline and the motor-control subsystem.
+**Movement command mapping:**
 
----
+| Classified state | Serial command |
+|---|---|
+| Forward | `F` |
+| Left | `L` |
+| Right | `R` |
+| Stop | `S` |
+| Neutral | No movement command |
+
+**Engineering principle:** Each layer has a distinct responsibility, allowing signal-processing algorithms, classification models, and hardware-control components to be evaluated and improved independently. Neutral or invalid predictions must not trigger movement.
 
 ## 4. EEG Data and Classification Classes
 
